@@ -44,12 +44,38 @@ if (app.Environment.IsDevelopment())
 }
 
 app.MapGet("/", () => "Hello World!");
-app.MapGet("/hello", (string name) => $"Hello {name}");
 app.MapPost("/person", async (Person person, DataContext context) =>
 {
     context.Persons.Add(person);
     await context.SaveChangesAsync();
     return Results.Ok(person);
+});
+app.MapGet("/person", async (DataContext context) =>
+{
+    var persons = await context.Persons.ToListAsync();
+    return Results.Ok(persons);
+});
+app.MapGet("/person/{id}", async (int id, DataContext context) =>
+{
+    var person = await context.Persons.FindAsync(id);
+    if (person == null)
+    {
+        return Results.NotFound();
+    }
+    return Results.Ok(person);
+});
+app.MapPut("/person/{id}", async (int id, Person person, DataContext context) =>
+{
+    var existingPerson = await context.Persons.FindAsync(id);
+if (existingPerson == null)
+{
+    return Results.NotFound("Person not found");
+    }
+    existingPerson.Name = person.Name;
+    existingPerson.LastName = person.LastName;
+    existingPerson.Age = person.Age;
+    await context.SaveChangesAsync();
+    return Results.Ok(existingPerson);
 });
 
 app.Run();
