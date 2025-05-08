@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TestMinimal</name>
+    </assembly>
+    <members>
+        <member name="T:TestMinimal.Data.DataContext">
+            Representa el contexto de datos utilizado para interactuar con la base de datos.
+        </member>
+        <member name="M:TestMinimal.Data.DataContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{TestMinimal.Data.DataContext})">
+            Constructor que inicializa una nueva instancia del contexto de datos.
+        </member>
+        <member name="P:TestMinimal.Data.DataContext.Persons">
+            Representa la colección de entidades de tipo Person en la base de datos.
+        </member>
+        <member name="T:TestMinimal.Entites.Person">
+            Representa una persona con un identificador, nombre y edad.
+        </member>
+        <member name="P:TestMinimal.Entites.Person.Id">
+            Identificador Unico de la persona 
+        </member>
+        <member name="P:TestMinimal.Entites.Person.Name">
+            Nombre de la persona
+        </member>
+        <member name="P:TestMinimal.Entites.Person.LastName">
+            Apellido de la persona
+        </member>
+        <member name="P:TestMinimal.Entites.Person.Age">
+            Edad de la persona
+        </member>
+        <member name="T:TestMinimal.Migrations.InitialMigrtions">
+            <inheritdoc />
+        </member>
+        <member name="M:TestMinimal.Migrations.InitialMigrtions.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:TestMinimal.Migrations.InitialMigrtions.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:TestMinimal.Migrations.InitialMigrtions.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>
